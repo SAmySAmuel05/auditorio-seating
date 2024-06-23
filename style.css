@@ -1,0 +1,145 @@
+:root {
+    --primary-color: #007BFF;
+    --primary-hover: #0056b3;
+    --occupied-color: #d9534f;
+    --occupied-hover: #c9302c;
+    --free-color: #4CAF50;
+    --free-hover: #45a049;
+    --background-color: #f0f0f0;
+    --button-width: 120px;
+    --button-height: 60px;
+    --button-font-size: 1.2em;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: var(--background-color);
+    margin: 0;
+}
+
+header, main {
+    margin: 20px;
+}
+
+#zones {
+    margin: 20px 0;
+}
+
+.zone-button, button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: var(--button-font-size);
+    cursor: pointer;
+    border: none;
+    border-radius: 30px; /* Oval shape */
+    background-color: var(--primary-color);
+    color: white;
+    transition: background-color 0.3s;
+    width: var(--button-width);
+    height: var(--button-height);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zone-button:hover, button:hover {
+    background-color: var(--primary-hover);
+}
+
+#auditorium {
+    display: none;
+    grid-template-columns: repeat(10, 50px);
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    background-color: var(--free-color);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.seat:hover {
+    background-color: var(--free-hover);
+}
+
+.occupied {
+    background-color: var(--occupied-color);
+}
+
+.occupied:hover {
+    background-color: var(--occupied-hover);
+}
+
+#summary {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    #auditorium {
+        grid-template-columns: repeat(8, 50px);
+    }
+}
+
+@media (max-width: 768px) {
+    .zone-button, button {
+        width: 100px;
+        height: 50px;
+        font-size: 1em;
+    }
+
+    #auditorium {
+        grid-template-columns: repeat(6, 50px);
+        gap: 5px;
+    }
+
+    .seat {
+        width: 40px;
+        height: 40px;
+    }
+
+    #summary {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .zone-button, button {
+        width: 80px;
+        height: 40px;
+        font-size: 0.9em;
+    }
+
+    #auditorium {
+        grid-template-columns: repeat(4, 50px);
+        gap: 5px;
+    }
+
+    .seat {
+        width: 30px;
+        height: 30px;
+    }
+
+    #summary {
+        font-size: 0.9em;
+    }
+
+    main {
+        margin: 10px;
+    }
+
+    header, #zones {
+        margin: 10px 0;
+    }
+}
